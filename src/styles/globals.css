@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────
+   NEXO VOICE — Design System (tokens de SKILL.md)
+   Tailwind CSS v4 — configuración inline con @theme
+─────────────────────────────────────────────── */
+
+@theme {
+  --color-bg: #080d1a;
+  --color-bg2: #0e1525;
+  --color-bg3: #162040;
+  --color-cyan: #00d4ff;
+  --color-teal: #00b4a0;
+  --color-white: #eef4ff;
+  --color-muted: #7a90b8;
+  --color-live: #00ff80;
+
+  --color-border: rgba(0, 212, 255, 0.13);
+  --color-glow: rgba(0, 212, 255, 0.18);
+  --color-glow2: rgba(0, 212, 255, 0.07);
+
+  /* Las fuentes se inyectan vía next/font en layout.tsx */
+  --font-display: var(--font-syne), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+}
+
+/* Variables CSS planas para usos puntuales (gradientes, etc.) */
+:root {
+  --grad: linear-gradient(135deg, #00d4ff, #00b4a0);
+  --border: rgba(0, 212, 255, 0.13);
+  --glow2: rgba(0, 212, 255, 0.07);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utilidades del design system ── */
+.text-gradient {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient {
+  background: var(--grad);
+}
+
+/* ── Animaciones ── */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes waveform {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+.animate-pulse-dot-fast {
+  animation: pulse-dot 1.5s infinite;
+}
