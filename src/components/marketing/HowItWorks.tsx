@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 
-/** Paso del proceso. */
 interface Step {
   badge: string;
   title: string;
   description: string;
   icon: ReactNode;
+}
+
+interface HowItWorksProps {
+  showHeader?: boolean;
 }
 
 const STEPS: readonly Step[] = [
@@ -63,19 +66,23 @@ const STEPS: readonly Step[] = [
 /**
  * Sección "Cómo funciona": proceso en 4 pasos con iconos.
  */
-export default function HowItWorks() {
+export default function HowItWorks({ showHeader = true }: HowItWorksProps) {
   return (
     <section className="relative z-10 mx-auto max-w-[1100px] px-6 py-[88px] md:px-12">
-      <div className="mb-3.5 text-[11px] font-bold uppercase tracking-[3px] text-cyan">
-        Proceso
-      </div>
-      <h2 className="mb-4 font-display text-[42px] font-extrabold leading-[1.08] tracking-[-1.5px] text-white">
-        Listo en 48 horas
-      </h2>
-      <p className="mb-14 max-w-[460px] text-base font-light leading-[1.7] text-muted">
-        Sin complicaciones técnicas. Nosotros configuramos todo y tú recibes las
-        citas.
-      </p>
+      {showHeader && (
+        <>
+          <div className="mb-3.5 text-[11px] font-bold uppercase tracking-[3px] text-cyan">
+            Proceso
+          </div>
+          <h2 className="mb-4 font-display text-[42px] font-extrabold leading-[1.08] tracking-[-1.5px] text-white">
+            Listo en 48 horas
+          </h2>
+          <p className="mb-14 max-w-[460px] text-base font-light leading-[1.7] text-muted">
+            Sin complicaciones técnicas. Nosotros configuramos todo y tú recibes
+            las citas.
+          </p>
+        </>
+      )}
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {STEPS.map((step) => (
