@@ -12,6 +12,9 @@ import { getAllPosts, getPostBySlug } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import type { SanityImageRef } from "@/lib/sanity/queries";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 /* ── Tipos ────────────────────────────────────────────── */
 
 interface PageParams {

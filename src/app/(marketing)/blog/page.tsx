@@ -5,6 +5,8 @@ import { getAllPosts } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import type { Post } from "@/lib/sanity/queries";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Blog",
   description:
